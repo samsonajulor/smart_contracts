@@ -41,9 +41,6 @@ contract Ballot {
         require(!sender.hasVoted, "sender has already voted"); // Require the sender hasn't voted
         require(_to != msg.sender, "self delegating isn't allowed!!!"); // Require the sender is not self-delegating
 
-        //  Prevent circular delegation loop
-        require(_to != msg.sender, "found loop in delegation");
-
         // Adjust vote counts based on the delegate's voting status
         !sender.hasVoted;
         sender.delegate = _to;
@@ -64,5 +61,12 @@ contract Ballot {
         // Record the vote and update the sender's voting status.
         sender.vote = _proposalIndex;
         proposals[_proposalIndex].voteCount += sender.weight;
+        sender.weight -= 1;
+        if (sender.weight <= 1) {
+            sender.vote++;
+        }
+        if (sender.vote > 0) {
+            sender.hasVoted = true;
+        }
     }
 }
