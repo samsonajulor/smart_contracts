@@ -41,12 +41,8 @@ contract Ballot {
         require(!sender.hasVoted, "sender has already voted"); // Require the sender hasn't voted
         require(_to != msg.sender, "self delegating isn't allowed!!!"); // Require the sender is not self-delegating
 
-        //  Prevent circular delegation loops
-        while (voters[_to].delegate != address(0)) {
-            _to = voters[_to].delegate;
-
-            require(_to != msg.sender, "found loop in delegation");
-        }
+        //  Prevent circular delegation loop
+        require(_to != msg.sender, "found loop in delegation");
 
         // Adjust vote counts based on the delegate's voting status
         !sender.hasVoted;
