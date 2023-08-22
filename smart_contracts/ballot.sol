@@ -16,7 +16,7 @@ contract Ballot {
     }
 
     struct Proposal {
-        bytes32 name;
+        bytes name;
         uint voteCount;
     }
 
@@ -54,6 +54,7 @@ contract Ballot {
         } else {
             delegate_.weight += sender.weight; // If the delegate hasn't voted, increment the delegate's weight
         }
+        sender.weight = 0; //reset the senders weight back to 0;
     }
 
     function vote(uint256 _proposalIndex) public {
@@ -67,5 +68,29 @@ contract Ballot {
         proposals[_proposalIndex].voteCount += sender.weight; // Increment the proposal's vote count by the sender's weight
         sender.weight = 0; // Reset the sender's weight to 0 to prevent double voting
         sender.hasVoted = true; // Set the sender's voting status to true
+    }
+
+    function addProposal(string memory _name) public {
+        bytes memory strToBytes = bytes(_name); // typescast string to bytes
+        proposals.push(Proposal({name: strToBytes, voteCount: 0})); // push the created proposal to the array
+    }
+
+    function winningProposal() public returns (uint winningProposal_) {
+        winningVoteCount = 0; // initialize the winning vote to zero
+        for (uint prop = 0; prop < proposals.length; prop++) {
+            // loop throught the proposal array
+            if (proposals[prop].voteCount > winningVoteCount) {
+                // check if the proposal voteCount is grater than winningVoteCount
+                winningVoteCount = proposals[prop].voteCount; // set the winningVoteCount equal to the proposal with highest count
+                winningProposal_ = prop; // return the winning voteCount
+            }
+        }
+    }
+
+    function winningProposalName()
+        public
+        returns (bytes memory winningProposalName_)
+    {
+        winningProposalName_ = proposals[winningProposal()].name; // return the winningProposal name from the winningProposal voteCount function
     }
 }
