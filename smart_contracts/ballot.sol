@@ -66,5 +66,6 @@ contract Ballot {
         sender.vote = _proposalIndex; // Set the sender's vote to the `_proposalIndex` value. This is the proposal they are voting for
         proposals[_proposalIndex].voteCount += sender.weight; // Increment the proposal's vote count by the sender's weight
         sender.weight = 0; // Reset the sender's weight to 0 to prevent double voting
+        sender.hasVoted = true; // Set the sender's voting status to true
     }
 }
