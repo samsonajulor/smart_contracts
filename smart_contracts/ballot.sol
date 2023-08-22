@@ -1,5 +1,6 @@
 // SPDX-License-Identifier: MIT
 pragma solidity ^0.8.17;
+
 /*
     Ballot Smart Contract
     @Author: Web3Bridge Cohort9
@@ -64,9 +65,6 @@ contract Ballot {
         // Record the vote and update the sender's voting status.
         sender.vote = _proposalIndex; // Set the sender's vote to the `_proposalIndex` value. This is the proposal they are voting for
         proposals[_proposalIndex].voteCount += sender.weight; // Increment the proposal's vote count by the sender's weight
-        sender.weight = 0; // Reset the sender's weight to 0 to prevent double voting 
-        if (sender.vote > 0) {
-            sender.hasVoted = true; // Set the sender's voting status to true
-        }
+        sender.weight = 0; // Reset the sender's weight to 0 to prevent double voting
     }
 }
