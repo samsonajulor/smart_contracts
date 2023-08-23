@@ -75,8 +75,8 @@ contract Ballot {
         proposals.push(Proposal({name: strToBytes, voteCount: 0})); // push the created proposal to the array
     }
 
-    function winningProposal() public returns (uint winningProposal_) {
-        winningVoteCount = 0; // initialize the winning vote to zero
+    function winningProposal() public view returns (uint winningProposal_) {
+        uint winningVoteCount = 0; // initialize the winning vote to zero
         for (uint prop = 0; prop < proposals.length; prop++) {
             // loop throught the proposal array
             if (proposals[prop].voteCount > winningVoteCount) {
@@ -87,10 +87,7 @@ contract Ballot {
         }
     }
 
-    function winningProposalName()
-        public
-        returns (bytes memory winningProposalName_)
-    {
+    function winningProposalName () public view returns (bytes memory winningProposalName_) {
         winningProposalName_ = proposals[winningProposal()].name; // return the winningProposal name from the winningProposal voteCount function
     }
 }
