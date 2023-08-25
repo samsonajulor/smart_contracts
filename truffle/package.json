@@ -1,0 +1,23 @@
+{
+  "name": "smart_contracts",
+  "version": "1.0.0",
+  "description": "This repository contains smart contracts and dApps designed collaboratively by web3bridgers of cohort IX.",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/samsonajulor/smart_contracts.git"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/samsonajulor/smart_contracts/issues"
+  },
+  "homepage": "https://github.com/samsonajulor/smart_contracts#readme",
+  "dependencies": {
+    "truffle": "^5.11.2"
+  }
+}
