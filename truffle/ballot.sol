@@ -113,13 +113,11 @@ contract Ballot {
     }
     
     function addProposals(string[] memory _names) public {
-    require(msg.sender == chairperson, "Only chairperson can add proposals");
+        require(msg.sender == chairperson, "Only chairperson can add proposals");
 
-    for (uint i = 0; i < _names.length; i++) {
-        bytes memory strToBytes = bytes(_names[i]);
-        proposals.push(Proposal({name: strToBytes, voteCount: 0}));
+        for (uint i = 0; i < _names.length; i++) {
+            bytes memory strToBytes = bytes(_names[i]);
+            proposals.push(Proposal({name: strToBytes, voteCount: 0}));
+        }
     }
-}
-
-
 }
