@@ -23,15 +23,15 @@ To contribute to this repository, fork it, and raise a PR against the main branc
 - Compile the contract(s) with either of these commands
 `npx truffle compile`
 `npx truffle compile --all`
-`npx truffle compile ./<file path>`
+`npx truffle compile ./{file path}`
 
-- Copy the resulting JSON abi from the ./build/contracts dir into the client/<appName>/src/contract/<nameOfContract>.json
-  #### PS: replace texts in <>.
+- Copy the resulting JSON abi from the ./build/contracts dir into the client/{appName}/src/contract/{nameOfContract}.json
+  #### PS: replace texts in {}.
 
-- In another terminal, cd into the clients/ballot or client/<anyOtherAppCreated> dir
+- In another terminal, cd into the clients/ballot or client/{anyOtherAppCreated} dir
 - Run `npm install` to install dependencies.
 - Run `npm start`
-- view the dApp in localhost:<port>.
+- view the dApp in localhost:{port}.
   #### port is usually 3000
 
 
