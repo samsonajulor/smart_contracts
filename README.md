@@ -12,7 +12,7 @@ To contribute to this repository, fork it, and raise a pr against the main branc
 ## Init truffle if truffle-config is absent
 `npx truffle init`
 
-## compile contract
+## compile contract with either of these commands
 `npx truffle compile`
 `npx truffle compile --all`
 `npx truffle compile ./<file path>`
