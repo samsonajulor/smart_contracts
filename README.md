@@ -5,7 +5,6 @@ To contribute to this repository, fork it, and raise a PR against the main branc
 
 ## Contracts are found in the .sol file in the truffle folder.
 
-
 ## How to compile a contract
 - Change into the truffle dir
   `cd truffle`
