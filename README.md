@@ -34,6 +34,6 @@ To contribute to this repository, fork it, and raise a PR against the main branc
 - view the dApp in localhost:{port}.
   #### port is usually 3000
 - the app looks like this
-![ballot contract ui](../../assets/ballot%20contract%20ui.png)
+![ballot contract UI](./assets/ballot%20contract%20ui.png)
 
 
