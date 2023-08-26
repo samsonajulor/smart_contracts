@@ -33,7 +33,7 @@ To contribute to this repository, fork it, and raise a PR against the main branc
 - Run `npm start`
 - view the dApp in localhost:{port}.
   #### port is usually 3000
-- the app looks like this
+- the app looks like this <br/>
 ![ballot contract UI](./assets/ballot%20contract%20ui.png)
 
 
